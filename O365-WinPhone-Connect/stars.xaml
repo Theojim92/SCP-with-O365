@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="O365_WinPhone_Connect.stars"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:O365_WinPhone_Connect"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="LayoutRoot"  Background="#FF250D5C">
+
+
+        <Canvas Name="myDialog" HorizontalAlignment="Left" Height="440" Width="373" Margin="10.001,173.333,0,0" VerticalAlignment="Top" Background="Black" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" >
+            <Canvas.RenderTransform>
+                <CompositeTransform SkewX="0.152" TranslateX="-0.622"/>
+            </Canvas.RenderTransform>
+
+
+        </Canvas>
+
+        <TextBlock x:Name="textBlock" FontSize="45" HorizontalAlignment="Left" Margin="30,17,0,0" TextWrapping="Wrap" Text="Rate from 1 to 5" VerticalAlignment="Top" Height="56" Width="333" FontWeight="SemiBold"/>
+        <TextBlock x:Name="textBlock1" FontSize="25"  HorizontalAlignment="Left" Margin="20,98,0,0" TextWrapping="Wrap" Text="How effective do you think was the presentation of your team today morning?" VerticalAlignment="Top" Height="207" Width="370"/>
+        <RadioButton x:Name="radioButton" Content="" HorizontalAlignment="Left" Margin="60,393,0,0" VerticalAlignment="Top" Width="40" Checked="radioButton_Checked"/>
+        <RadioButton x:Name="radioButton1" Content="" HorizontalAlignment="Left" Margin="126,393,0,0" VerticalAlignment="Top" Width="40" Checked="radioButton1_Checked"/>
+        <RadioButton x:Name="radioButton2" Content="" HorizontalAlignment="Left" Margin="192,393,0,0" VerticalAlignment="Top" Width="40" Checked="radioButton2_Checked"/>
+        <RadioButton x:Name="radioButton3" Content="" HorizontalAlignment="Left" Margin="258,393,-26,0" VerticalAlignment="Top" Width="40" Checked="radioButton3_Checked"/>
+        <RadioButton x:Name="radioButton4" Content="" HorizontalAlignment="Left" Margin="324,393,-92,0" VerticalAlignment="Top" Width="40" Checked="radioButton4_Checked"/>
+        <Image x:Name="image" Source="/Pictures/white_star.png" HorizontalAlignment="Left" Height="64" Margin="40,322,0,0" VerticalAlignment="Top" Width="64"/>
+        <Image x:Name="image1" Source="/Pictures/white_star.png" HorizontalAlignment="Left" Height="64" Margin="105,322,0,0" VerticalAlignment="Top" Width="64"/>
+        <Image x:Name="image2" Source="/Pictures/white_star.png" HorizontalAlignment="Left" Height="64" Margin="173,322,0,0" VerticalAlignment="Top" Width="64"/>
+        <Image x:Name="image3" Source="/Pictures/white_star.png" HorizontalAlignment="Left" Height="64" Margin="240,322,0,0" VerticalAlignment="Top" Width="64"/>
+        <Image x:Name="image4" Source="/Pictures/white_star.png" HorizontalAlignment="Left" Height="64" Margin="306,322,0,0" VerticalAlignment="Top" Width="64"/>
+        <Button x:Name="button" Content="Submit" HorizontalAlignment="Left" Margin="150,504,0,0" VerticalAlignment="Top" Click="button_Click"/>
+
+
+
+    </Grid>
+</Page>
