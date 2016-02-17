@@ -16,7 +16,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="O365_WinPhone_Connect.App">
-      <m3:VisualElements DisplayName="O365-Connect" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Assets\SmallLogo.png" Description="O365-WinPhone-Connect" ForegroundText="light" BackgroundColor="transparent">
+      <m3:VisualElements DisplayName="Sense Checking and Polling" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Pictures\TileLogo.png" Description="Sense Checking and Polling" ForegroundText="light" BackgroundColor="transparent">
         <m3:DefaultTile Wide310x150Logo="Assets\WideLogo.png" Square71x71Logo="Assets\Square71x71Logo.png">
         </m3:DefaultTile>
         <m3:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#1799F0" />
@@ -27,12 +27,13 @@
     <Capability Name="internetClientServer" />
     <Capability Name="enterpriseAuthentication" />
     <Capability Name="sharedUserCertificates" />
-  <DeviceCapability Name="bluetooth.rfcomm" xmlns="http://schemas.microsoft.com/appx/2013/manifest">
+    <DeviceCapability Name="bluetooth.rfcomm" xmlns="http://schemas.microsoft.com/appx/2013/manifest">
       <Device Id="any">
         <!-- Used by the Microsoft Band SDK -->
         <Function Type="serviceId:A502CA9A-2BA5-413C-A4E0-13804E47B38F" />
         <!-- Used by the Microsoft Band SDK -->
         <Function Type="serviceId:C742E1A2-6320-5ABC-9643-D206C677E580" />
       </Device>
-    </DeviceCapability></Capabilities>
+    </DeviceCapability>
+  </Capabilities>
 </Package>

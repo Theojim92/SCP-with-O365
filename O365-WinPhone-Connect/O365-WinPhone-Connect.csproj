@@ -117,7 +117,7 @@
     <Content Include="Assets\WideLogo.scale-240.png" />
     <Content Include="Pictures\logo.png" />
     <Content Include="Pictures\SmallLogo.png" />
-    <Content Include="Pictures\TileLogo.png" />
+    <Content Include="Pictures\TileLogo.scale-100.png" />
     <Content Include="Pictures\white_star.png" />
     <Content Include="Pictures\yellow_star.png" />
   </ItemGroup>
