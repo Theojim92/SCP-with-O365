@@ -3,7 +3,7 @@
   <Identity Name="0170a97d-247e-46af-9725-470d4c593e6f" Publisher="CN=jamescro" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="0170a97d-247e-46af-9725-470d4c593e6f" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>O365-Connect</DisplayName>
+    <DisplayName>Sense Checking and Polling</DisplayName>
     <PublisherDisplayName>Microsoft</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -19,7 +19,7 @@
       <m3:VisualElements DisplayName="Sense Checking and Polling" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Pictures\TileLogo.png" Description="Sense Checking and Polling" ForegroundText="light" BackgroundColor="transparent">
         <m3:DefaultTile Wide310x150Logo="Assets\WideLogo.png" Square71x71Logo="Assets\Square71x71Logo.png">
         </m3:DefaultTile>
-        <m3:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#1799F0" />
+        <m3:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#250D5C" />
       </m3:VisualElements>
     </Application>
   </Applications>

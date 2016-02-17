@@ -1,4 +1,4 @@
-﻿<!-- Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See full license at the bottom of this file. -->
+﻿
 
 <Page
     x:Class="O365_WinPhone_Connect.MainPage"
@@ -10,71 +10,27 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <!-- Image and Title -->
-            <RowDefinition Height="auto"/>
-            <!-- Progress bar -->
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
-            <!-- Connect button -->
-            <RowDefinition Height="auto"/>
-            <!-- Send button -->
-            <RowDefinition Height="auto"/>
-            <!-- Email address -->
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
-            <!-- Welcome text -->
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Image Grid.Column="0" Source="Assets/Logo70x70.png" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,10,0,0" Width="45"/>
-            <TextBlock Grid.Column="2" x:Name="appTitle" Text="Office 365 Connect Project"
-                       HorizontalAlignment="Center" 
-                       VerticalAlignment="Center"  
-                       FontSize="24" 
-                       />
-        </Grid>
+    <Grid x:Name="Login">
 
-        <ProgressBar Grid.Row="1" x:Name="ProgressBar" Width="200" Visibility="Collapsed" HorizontalAlignment="Stretch"  VerticalAlignment="Top" IsIndeterminate="True" Height="1" />
-        <Button Grid.Row="3" HorizontalAlignment="Center" x:Name="ConnectButton" Content="Connect" Click="ConnectButton_Click" />
-        <Button Grid.Row="4" x:Name="CalendarButton" IsEnabled="False" Content="Get Events" HorizontalAlignment="Center" Click="EventsButton_Click" VerticalAlignment="Top" Width="109" Grid.ColumnSpan="2"/>
-        <TextBox Grid.Row="5" x:Name="EmailAddressBox" HorizontalAlignment="Center" TextAlignment="Center"  TextWrapping="Wrap" PlaceholderText="email address" VerticalAlignment="Top"  Width="231" />
-        <TextBlock Grid.Row="7" x:Name="EventsView" FontSize="18" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Stretch" />
+        <Canvas Name="myDialog" HorizontalAlignment="Left" Height="440" Width="373" Margin="0.001,0.333,0,0" VerticalAlignment="Top" Background="Black" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" >
+            <Canvas.RenderTransform>
+                <CompositeTransform SkewX="0.152" TranslateX="-0.622"/>
+            </Canvas.RenderTransform>
+
+
+        </Canvas>
+        
+       
+
+        <ProgressBar x:Name="ProgressBar" Width="200" Visibility="Collapsed" HorizontalAlignment="Stretch"  VerticalAlignment="Top" IsIndeterminate="True" Height="1" />
+        <Button x:Name="ConnectButton" Content="Connect" Click="ConnectButton_Click"  HorizontalAlignment="Left" Margin="143,295,0,0" VerticalAlignment="Top"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="70" Margin="104,45,0,0" VerticalAlignment="Top" Width="193" Source="/O365-WinPhone-Connect/Pictures/logo.png" Visibility="Visible" />
+        <TextBlock Grid.Column="2" x:Name="appTitle" Margin="-10,-230,0,0" TextWrapping="WrapWholeWords" TextAlignment="Center" Text="Click the button and Use your Microsoft Account to Sign In" Height="90" Width="300" HorizontalAlignment="Center"  VerticalAlignment="Center" FontSize="24" />
+        <Button x:Name="CalendarButton" Content="Get Events" IsEnabled="False" HorizontalAlignment="Left" Margin="265,387,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="EventsView" FontSize="18" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Stretch" Margin="25,457,20,36"  Text="Events will be loaded after login" />
+        <TextBox x:Name="EmailAddressBox" PlaceholderText="email address" HorizontalAlignment="Left" Margin="20,395,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="224"/>
+
+
     </Grid>
 
 </Page>
-<!--
-O365-WinPhone-Connect, https://github.com/OfficeDev/O365-WinPhone-Connect
-
-Copyright (c) Microsoft Corporation
-All rights reserved. 
-
-MIT License:
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-""Software""), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.    
-  
--->

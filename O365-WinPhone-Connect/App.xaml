@@ -6,8 +6,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:O365_WinPhone_Connect">
     <Application.Resources>
-        <SolidColorBrush x:Key="SampleHeaderBrush" Color="#007ACC" />
-        <SolidColorBrush x:Key="ApplicationPageBackgroundThemeBrush" Color="#1799F0" />
+        <SolidColorBrush x:Key="SampleHeaderBrush" Color="#FF250D5C" />
+        <SolidColorBrush x:Key="ApplicationPageBackgroundThemeBrush" Color="#FF250D5C" />
         <x:String x:Key="ProgressBarIndeterminateForegroundThemeBrush">White</x:String>
         <x:String x:Key="ida:ClientID">7aa05182-e7ac-407e-ba7c-3354b9f60519</x:String>
         <x:String x:Key="ida:AADInstance">https://login.microsoftonline.com/</x:String>
