@@ -16,6 +16,27 @@ using System.Text;
 
 namespace O365_WinPhone_Connect
 {
+    class UserLoginResponse
+    {
+        
+        public string AccessToken { get; set; }
+
+        public string RefreshToken { get; set; }
+
+        [JsonProperty("Name")]
+        public string Name { get; set; }
+
+        [JsonProperty("FirstName")]
+        public string FirstName { get; set; }
+
+        [JsonProperty("LastName")]
+        public string LastName { get; set; }
+
+        [JsonProperty("FullName")]
+        public string FullName { get; set; }        
+    }
+
+
     internal static class AuthenticationHelper
     {
         // The ClientID is added as a resource in App.xaml when you register the app with Office 365. 
@@ -247,7 +268,8 @@ namespace O365_WinPhone_Connect
             }
 
         }
-        public static async void BeginAuthentication()
+
+        public static async void BeginAuthentication(Action<UserLoginResponse> responseConsumer)
         {
             
             //First, look for the authority used during the last authentication.
@@ -267,10 +289,19 @@ namespace O365_WinPhone_Connect
                 
                 HttpClient httpClient = new HttpClient();
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
-                var response = await httpClient.GetAsync(ApiUserDetails);
-                string jsonResult = await response.Content.ReadAsStringAsync();
+                var response = await httpClient.GetAsync(ApiUserDetails);                
 
-                Debug.WriteLine(jsonResult);
+                if (response.IsSuccessStatusCode)
+                {
+                    string jsonResult = await response.Content.ReadAsStringAsync();
+                    UserLoginResponse loginResponse = JsonConvert.DeserializeObject<UserLoginResponse>(jsonResult);
+                    loginResponse.AccessToken = result.AccessToken;
+                    loginResponse.RefreshToken = result.RefreshToken;
+
+                    responseConsumer(loginResponse);
+                }
+                
+                
             });
             
             

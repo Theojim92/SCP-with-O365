@@ -102,7 +102,7 @@ namespace O365_WinPhone_Connect
             EmailAddressBox.IsEnabled = true;
             _userLoggedIn = true;
             ProgressBar.Visibility = Visibility.Collapsed;
-            Frame.Navigate(typeof(UserPage));
+            
             ConnectButton.Content = "disconnect";
 
         }
@@ -124,7 +124,11 @@ namespace O365_WinPhone_Connect
                 }
                 else
                 {
-                    AuthenticationHelper.BeginAuthentication();
+                    AuthenticationHelper.BeginAuthentication(async userLoginResponse => {
+                        await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => {
+                            this.Frame.Navigate(typeof(UserPage), userLoginResponse);
+                        });
+                    });
                 }
             }
             else

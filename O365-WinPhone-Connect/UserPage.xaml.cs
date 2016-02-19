@@ -70,7 +70,8 @@ namespace O365_WinPhone_Connect
         /// handlers that cannot cancel the navigation request.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            
+            UserLoginResponse data_from_login = e.Parameter as UserLoginResponse ;
+            textBlock1.Text = "Hello " + data_from_login.FirstName + "!";
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
