@@ -9,9 +9,11 @@
         <SolidColorBrush x:Key="SampleHeaderBrush" Color="#FF250D5C" />
         <SolidColorBrush x:Key="ApplicationPageBackgroundThemeBrush" Color="#FF250D5C" />
         <x:String x:Key="ProgressBarIndeterminateForegroundThemeBrush">White</x:String>
-        <x:String x:Key="ida:ClientID">7aa05182-e7ac-407e-ba7c-3354b9f60519</x:String>
+        <x:String x:Key="ida:ClientID">fc6e5d1c-2f8e-4fa1-99a6-74754e7fc89e</x:String>
         <x:String x:Key="ida:AADInstance">https://login.microsoftonline.com/</x:String>
-        <x:String x:Key="ida:Domain">sensecheckingpolling.onmicrosoft.com</x:String>
+        <x:String x:Key="ida:Domain">scpms.onmicrosoft.com</x:String>
+        <x:String x:Key="ida:ResourceID">https://scpms.onmicrosoft.com/scpweb</x:String>
+        <x:String x:Key="ida:ApiHostname">https://scpms.azurewebsites.net</x:String>
     </Application.Resources>
 
 </Application>

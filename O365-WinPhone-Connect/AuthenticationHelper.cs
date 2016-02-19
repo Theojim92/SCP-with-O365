@@ -10,6 +10,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Windows.Security.Authentication.Web;
 using Windows.Storage;
+using System.Net.Http.Headers;
+using Newtonsoft.Json;
+using System.Text;
 
 namespace O365_WinPhone_Connect
 {
@@ -22,13 +25,17 @@ namespace O365_WinPhone_Connect
         private static Uri _returnUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri();
 
 
+        // Properties of the Web API invoked
+        private static readonly string ResourceID = App.Current.Resources["ida:ResourceID"].ToString();
+        private static readonly string ApiHostname = App.Current.Resources["ida:ApiHostname"].ToString();
+        private static readonly string ApiUserDetails = String.Format("{0}/{1}", ApiHostname, "api/User/details");
+
+
         // Properties used for communicating with your Windows Azure AD tenant.
         // The AuthorizationUri is added as a resource in App.xaml when you regiter the app with 
         // Office 365. As a convenience, we load that value into a variable called _commonAuthority, adding _common to this Url to signify
         // multi-tenancy. This way it will always be in sync with whatever value is added to App.xaml.
         private static readonly string CommonAuthority = App.Current.Resources["ida:AADInstance"].ToString() + @"Common";
-        private static readonly Uri DiscoveryServiceEndpointUri = new Uri("https://api.office.com/discovery/v1.0/me/");
-        private const string DiscoveryResourceId = "https://api.office.com/discovery/";
 
 
         //Static variable stores the Outlook client so that we don't have to create it more than once.
@@ -148,7 +155,7 @@ namespace O365_WinPhone_Connect
                     //See the Discovery Service Sample (https://github.com/OfficeDev/Office365-Discovery-Service-Sample)
                     //for an approach that improves performance by storing the discovery service information in a cache.
                     DiscoveryClient discoveryClient = new DiscoveryClient(
-                        async () => await GetTokenHelperAsync(_authenticationContext, DiscoveryResourceId));
+                        async () => await GetTokenHelperAsync(_authenticationContext, ResourceID));
 
                     // Get the specified capability ("Calendar").
                     CapabilityDiscoveryResult result =
@@ -235,13 +242,14 @@ namespace O365_WinPhone_Connect
             else
             {
                 _authenticationContext = await AuthenticationContext.CreateAsync(LastAuthority);
-                AuthenticationResult result = await _authenticationContext.AcquireTokenSilentAsync(DiscoveryResourceId, ClientID);
+                AuthenticationResult result = await _authenticationContext.AcquireTokenSilentAsync(ResourceID, ClientID);
                 return result;
             }
 
         }
         public static async void BeginAuthentication()
         {
+            
             //First, look for the authority used during the last authentication.
             //If that value is not populated, use CommonAuthority.
             string authority = null;
@@ -253,9 +261,19 @@ namespace O365_WinPhone_Connect
             {
                 authority = LastAuthority;
             }
-            
+
             _authenticationContext = await AuthenticationContext.CreateAsync(authority);
-            _authenticationContext.AcquireTokenAndContinue(DiscoveryResourceId, ClientID, _returnUri, null);
+            _authenticationContext.AcquireTokenAndContinue(ResourceID, ClientID, _returnUri, async result => {
+                
+                HttpClient httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
+                var response = await httpClient.GetAsync(ApiUserDetails);
+                string jsonResult = await response.Content.ReadAsStringAsync();
+
+                Debug.WriteLine(jsonResult);
+            });
+            
+            
         }
 
     }
